@@ -14,5 +14,5 @@ setup(
         url              = 'https://github.com/PinkPhayate/OddsWatcher',
         keywords         = 'hourse race odds',
         packages         = find_packages("odds_watcher"),
-        install_requires = [bs4, request]
+        install_requires = ['bs4>=0.0.1', 'request>=0.0.13']
         )
