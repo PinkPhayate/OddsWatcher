@@ -3,7 +3,7 @@ from urllib import request
 
 
 class OddsWatcher(object):
-    def get_request_via_get(self, url):
+    def __get_request_via_get(self, url):
         source = request.urlopen(url)
         return source
 
@@ -40,14 +40,14 @@ class OddsWatcher(object):
             dict[time] = rid
         return dict
 
-    def find_race_time(self, div):
+    def __find_race_time(self, div):
         text = div.text
         time = self.__extract_time(text)
         if time is not None:
             return time
         return None
 
-    def scrape_race_info(self, source):
+    def __scrape_race_info(self, source):
         soup = BeautifulSoup(source, "lxml")
         df = []
         # Extract status
@@ -69,7 +69,7 @@ class OddsWatcher(object):
             df.append(row)
         return df
 
-    def scrape_race_id(self, source):
+    def __scrape_race_id(self, source):
         soup = BeautifulSoup(source, "lxml")
         df = []
         time_df = []
@@ -84,7 +84,7 @@ class OddsWatcher(object):
             df.append(row)
 
             for div in col.findAll(class_='racedata'):
-                time = self.find_race_time(div)
+                time = self.__find_race_time(div)
                 if time is not None:
                     times.append(time)
             time_df.append(times)
@@ -94,18 +94,18 @@ class OddsWatcher(object):
 
     def get_race_odds(self, race_id):
         url = 'http://race.netkeiba.com/?pid=race_old&id=c' + str(race_id)
-        source = self.get_request_via_get(url)
-        self.df = self.scrape_race_info(source)
+        source = self.__get_request_via_get(url)
+        self.df = self.__scrape_race_info(source)
         odds_list = [x[10] for x in self.df if len(x) > 0]
         return odds_list
 
     def get_race_ids(self, date):
         # url = 'http://race.netkeiba.com/?pid=race_list&id=c' + str(date)
         url = 'http://race.netkeiba.com/?pid=race_list&id=p' + str(date)
-        source = self.get_request_via_get(url)
+        source = self.__get_request_via_get(url)
         dict = {}
-        for d in self.scrape_race_id(source):
+        for d in self.__scrape_race_id(source):
             dict.update(d)
         print(dict)
-        # df, time_df = self.scrape_race_id(source)
+        # df, time_df = self.__scrape_race_id(source)
         # print(df, time_df)
