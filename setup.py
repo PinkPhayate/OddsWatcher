@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
         name             = 'oddsman',
-        version          = '0.1.0',
+        version          = '0.1.1',
         description      = 'this module extracts odds(rate) of hourse race held today ',
         license          = 'MIT',
         author           = 'phayate',
