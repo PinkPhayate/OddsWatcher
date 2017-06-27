@@ -5,9 +5,11 @@ Python 3.5.1
 
 ## Usage
 
+### install
 enter below commands
-sudo pip install git+https://github.com/PinkPhayate/OddsWatcher
+```sudo pip install git+https://github.com/PinkPhayate/OddsWatcher```
 
+### how to use
 ```
 import oddsman
 ods = oddsman.OddsWatcher()
@@ -17,9 +19,11 @@ ods = oddsman.OddsWatcher()
 ### get\_race\_ids(time: str)
 
 * paramater
+
 	time: str	日付
 
 * feature
+	
 	パラメータで入力した日付のレースを確認し、あれば出走時刻をkeyとしたdicttionaryを返す
 
 * example
@@ -34,12 +38,15 @@ todays_race_id = odds_man.get_race_ids('0625')
 ### get\_race\_odds(race\_id: str)
 
 * paramater
+
 	race\_id: str	レースid
 
 * feature
+	
 	オッズを調べたいレースのidを入力すると、オッズが返ってくる
 
 * example
+
 ```
 from oddsman import OddsWatcher
 odds_man = OddsWatcher()
