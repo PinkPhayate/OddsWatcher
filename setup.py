@@ -4,7 +4,7 @@ with open('README.md') as f:
         readme = f.read()
 
 setup(
-        name             = 'odds_watcher',
+        name             = 'oddsman',
         version          = '0.1.0',
         description      = 'this module extracts odds(rate) of hourse race held today ',
         license          = 'MIT',
