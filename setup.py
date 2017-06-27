@@ -13,7 +13,7 @@ setup(
         author_email     = 'pinqphayat@gmail.com',
         url              = 'https://github.com/PinkPhayate/OddsWatcher',
         keywords         = 'hourse race odds',
-        package_dir = {'': 'src'}
+        package_dir = {'': 'src'},
         packages         = find_packages('src'),
         install_requires = ['bs4>=0.0.1', 'request>=0.0.13']
         )
