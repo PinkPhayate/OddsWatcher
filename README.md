@@ -12,7 +12,7 @@ enter below commands
 
 ### how to use
 ```
-import oddsman
+from oddsman import oddsman
 ods = oddsman.OddsWatcher()
 ```
 
