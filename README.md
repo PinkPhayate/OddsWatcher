@@ -7,6 +7,7 @@ Python 3.5.1
 
 ### install
 enter below commands
+
 ```sudo pip install git+https://github.com/PinkPhayate/OddsWatcher```
 
 ### how to use
